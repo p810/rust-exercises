@@ -14,3 +14,4 @@ A collection of exercises that I'm doing alongside Rust's official book, [The Ru
 | [`structs/`](structs/) | [5 Using Structs to Structure Related Data](https://doc.rust-lang.org/book/ch05-00-structs.html) | Introduces structs, `impl` and methods, associated functions, etc. |
 | [`types_and_structures/`](types_and_structures/) | [3.5 Control Flow](https://doc.rust-lang.org/book/ch03-05-control-flow.html) | Demonstrates tuples, arrays, and loops |
 | [`variables/`](variables/) | [3.1 Variables and Mutability](https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html) | A brief introduction to variable assignment and mutability in Rust |
+| [`library/`](library/) | [7 Managing Growing Projects with Packages, Crates, and Modules](https://doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html) | Goes over some of the semantics around how code is organized in Rust, scope resolution, etc. |
