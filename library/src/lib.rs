@@ -18,6 +18,17 @@ pub mod my_library {
         // 
         // the relative path would need to occur from somewhere in this directory, if I'm not mistaken
         // 
+        // another thing about relative paths is that they support two special keywords, at the beginning of a
+        // path, those being `self` or `super`, which have the following respective effects:
+        // 
+        //   - refers to the current file / scope, for example if you had a module named `foo` adjacent to the
+        //     root scope of a file, you could `use self::foo::(...)` to reference an entity of that module
+        //   - refers to the parent scope, so for example if you're in a nested module `foo::bar`, you could refer
+        //     to the contents of `foo` with `super::(...)` 
+        // 
+        // anything outside of `my_library` could refer to items contained within using `crate`, `self`, or just a
+        // relative name without any of the prefixes.
+        // 
         pub fn speak(greeting: &String) {
             println!("{}", greeting);
         }
@@ -81,5 +92,10 @@ pub mod my_library {
         Orange,
         Peach,
         Blueberry,
+    }
+
+    pub enum FooBar {
+        Bam,
+        Quux,
     }
 }
