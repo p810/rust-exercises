@@ -21,3 +21,6 @@
     3. As a **grapheme cluster**, which is what we can think of as the letters making up a word - if any of the characters in "test" stored more than one byte, then the collection of characters above would be different, but the grapheme cluster would remain the same
 - String slices can be done using indexing syntax (e.g. `&var[0..1]`) but it can cause an exception to be thrown if the index doesn't cover the entirety of a character 
     * For example `д` being represented by two byes means that `&var[0..1]` would return that character if it were the first one in the string, but if it were the second, and preceded by a single byte character, then Rust would panic because it would have an incomplete character; the error thrown is something like, "byte index *x* is not a char boundary; it is inside *y*"
+
+### Hash maps
+- Hash maps are considered **homogenous** (like vectors are) because they must contain keys and values of the same type; in this way, they are different from something like an object in JavaScript

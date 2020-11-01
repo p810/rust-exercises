@@ -1,10 +1,13 @@
 mod vector;
 mod string;
+mod hash_map;
 
 fn main() {
     vector_examples();
 
     string_examples();
+
+    hash_map_examples();
 }
 
 fn vector_examples() {
@@ -47,4 +50,17 @@ fn string_examples() {
     let b = String::from("Hello world!");
     println!("{:?}", string::get_reversed_chars_from_string(&b));
     println!("{:?}", string::get_bytes_from_string(&b));
+}
+
+fn hash_map_examples() {
+    let mut c = hash_map::constructing_hash_map_from_collect();
+    c.insert(String::from("e"), String::from("f"));
+    println!("{:?}", c);
+
+    let d = hash_map::constructing_hash_map_with_associated_function();
+
+    match d.get(&"foo".to_string()) {
+        Some(g) => println!("d.foo = \"bar\""),
+        None => println!("There's a problem here"),
+    }
 }
