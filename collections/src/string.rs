@@ -52,3 +52,30 @@ pub fn strings_can_grow_and_change(s: &mut String) -> String {
 pub fn concatenation_with_plus_operator_returns_new_string(s: String) -> String {
     s + &String::from("!")
 }
+
+// 
+// although using string slices can cause panics when the contents of the string are unknown (see the readme notes)
+// there are a few methods that can be used to iterate over the contents of a string
+// 
+pub fn get_reversed_chars_from_string(s: &String) -> Vec<char> {
+    let mut chars = Vec::with_capacity(s.len());
+
+    for character in s.chars().rev() {
+        chars.push(character);
+    }
+
+    chars
+}
+
+// 
+// it's also possible to iterate over the individual bytes in a string
+// 
+pub fn get_bytes_from_string(s: &String) -> Vec<u8> {
+    let mut bytes = Vec::new();
+
+    for byte in s.bytes() {
+        bytes.push(byte);
+    }
+
+    bytes
+}

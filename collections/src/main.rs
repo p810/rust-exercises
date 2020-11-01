@@ -43,4 +43,8 @@ fn string_examples() {
 
     let a = String::from("Test");
     println!("a = {}", string::concatenation_with_plus_operator_returns_new_string(a));
+
+    let b = String::from("Hello world!");
+    println!("{:?}", string::get_reversed_chars_from_string(&b));
+    println!("{:?}", string::get_bytes_from_string(&b));
 }
