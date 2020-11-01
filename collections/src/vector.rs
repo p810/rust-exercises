@@ -123,3 +123,39 @@ fn stores_different_types_via_an_enum() -> Vec<SpreadsheetCell> {
         SpreadsheetCell::Text(String::from("Pi")),
     ]
 }
+
+// 
+// the `get_mut()` method can be used to get a mutable reference for an element in a vector
+// 
+pub fn get_mut_returns_a_mutable_reference_for_an_element(v: &mut Vec<i8>) {
+    if let Some(element) = v.get_mut(0) {
+        *element += 10;
+    }
+}
+
+// 
+// slices are read only objects that are more commonly used in read only situations, since passing
+// a vector means you're passing an object that can potentially be mutable
+// 
+// the syntax for slicing a vector is `&[type]`, and works for variable assignment as well
+// 
+pub fn slicing_can_be_used_to_get_a_read_only_array(v: &[i8]) {
+    println!("v[0] = {}", v[0]);
+}
+
+// 
+// the associated function `with_capacity()` can be used to specify how large a vector is expected to
+// grow, which prevents the need to reallocate the memory for its elements when the length surpasses
+// its capacity
+// 
+// it's recommended to use this constructor whenever possible to prevent unnecessary reallocation
+// 
+pub fn with_capacity_can_be_used_to_specify_vector_capacity() -> Vec<i8> {
+    let mut vec = Vec::with_capacity(10);
+
+    for i in  1 .. 10 {
+        vec.push(i);
+    }
+
+    vec
+}
