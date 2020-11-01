@@ -15,3 +15,9 @@
 - Because strings in Rust are UTF-8, an index might not always correlate to a proper Unicode value, because they can contain more than one byte per character
     * Example: `д` is represented by two bytes, and as the first character in a string named `x`, one might think that `x[0]` would equal `д`, but it would only be that character's first byte which is 208
     * Since this can cause unexpected results when using index access, Rust decided not to allow indexing on strings 
+- Strings can be thought of in three ways, using "test" as an example:
+    1. As a collection of **bytes**, i.e. the vector that stores the character's bytes - `[116, 101, 115, 116]`
+    2. As a collection of **characters** (`char`s) - `['t', 'e', 's', 't']`
+    3. As a **grapheme cluster**, which is what we can think of as the letters making up a word - if any of the characters in "test" stored more than one byte, then the collection of characters above would be different, but the grapheme cluster would remain the same
+- String slices can be done using indexing syntax (e.g. `&var[0..1]`) but it can cause an exception to be thrown if the index doesn't cover the entirety of a character 
+    * For example `д` being represented by two byes means that `&var[0..1]` would return that character if it were the first one in the string, but if it were the second, and preceded by a single byte character, then Rust would panic because it would have an incomplete character; the error thrown is something like, "byte index *x* is not a char boundary; it is inside *y*"
