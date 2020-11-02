@@ -60,7 +60,9 @@ fn hash_map_examples() {
     let d = hash_map::constructing_hash_map_with_associated_function();
 
     match d.get(&"foo".to_string()) {
-        Some(g) => println!("d.foo = \"bar\""),
+        Some(g) => println!("d.foo = {}", g),
         None => println!("There's a problem here"),
     }
+
+    hash_map::owned_types_will_be_moved_into_a_hash_map();
 }
